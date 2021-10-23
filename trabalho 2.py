@@ -1,41 +1,3 @@
-novoUsuario = {}
-listaUsuarios = []
-
-
-def criarUsuario (): ## Função para o cadastro de usuário com nome e email
-    novoUsuario ['nome'] = input('\nInsira o nome completo do usuário: ')
-    novoUsuario['email'] = input('Insira o email do usuário: ')
-    return novoUsuario
- #algo aqui está reescrevendo os ultimos cadastros
-
-
-def main (): ## Função para adicionar os usuários a uma lista
-    menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.' \
-    '\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.'\
-    '\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.'\
-    '\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail'\
-    '\nDigite o número da sua escolha: '))
-    while menu == 1:
-      listaUsuarios.append(criarUsuario())
-      main ()
-    if menu == 2:
-        for Cadastro in listaUsuarios:
-           print('Lista por ordem de cadastro:', listaUsuarios)
-        main()
-    elif menu == 3:
-       for CadastroAlfabetico in listaUsuarios: 
-            print('Lista por ordem alfabetica:', listaUsuarios.sort)
-       main()
-    elif menu == 4:
-       print('Busca por nome:', listaUsuarios)
-       main()
-    elif menu == 5:
-       print('excluindo por email:', listaUsuarios)
-    elif menu != [1,2,3,4,5]:
-      print("resposta não existente")
-      main()
-
-main()
 listaUsuarios = []#lista
 novoUsuario = {}#dicionário
 
@@ -53,7 +15,9 @@ def ordemAlfabetica (y):
 
 #-----------------------------------------------------------
 
-menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+menu = int(input('\nDigite 1 para cadastrar um novo usuário: '))
+while menu != 1:
+    menu = int(input('\nOpção inválida.\nDigite 1 para cadastrar um novo usuário: '))
 while menu >= 1 and menu <= 6:
     if menu == 1: # para cadastrar um novo usuário
         novoUsuario.clear()
@@ -61,14 +25,14 @@ while menu >= 1 and menu <= 6:
         novoUsuario['email'] = input('Insira o email do usuário: ') #add email
         listaUsuarios.append(novoUsuario.copy())
         ordemCad = listaUsuarios.copy()
-        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
 
         #--------------------------------------------------------
     elif menu == 2: # para exibir todos os usuários cadastrados em ordem de cadastro
         print('\nUsuários por ordem de cadastro:\n')
         for umUsuario in ordemCad:
             print(umUsuario)
-        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
 
         #--------------------------------------------------------
     elif menu == 3: # para exibir todos os usuários cadastrados em ordem alfabética
@@ -78,7 +42,7 @@ while menu >= 1 and menu <= 6:
         for umUsuario in ordemAlf:
             print(umUsuario)
        # print(listaUsuarios) 
-        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
 
         #---------------------------------------------------------
     elif menu == 4: #para procurar usuario buscando por nome
@@ -87,7 +51,7 @@ while menu >= 1 and menu <= 6:
        Resultados = [p for p in listaUsuarios if p['nome'] == Nome]
        print(Resultados)
 
-       menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+       menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
 
       #------------------------------------------------------
     elif menu == 5: #remover usuário cadastrado usando email
@@ -98,13 +62,13 @@ while menu >= 1 and menu <= 6:
        'Se não digite qualquer outra coisa: ')
        if Confirmacao == 'S' or 's':
          listaUsuarios = [p for p in listaUsuarios if p['email'] != Excluindo]
+         ordemCad = listaUsuarios.copy()
+         ordemAlf = listaUsuarios.copy()
 
-          #contagem = Exclusao.count + 1
-          #listaUsuarios.pop(contagem)
-          #print('Usuario Excluido com sucesso')
+          
 
        print(listaUsuarios)
-       menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail\nDigite o número da sua escolha: '))
+       menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
 
       #-----------------------------------------------------
     elif menu == 6: #alterar Usuario
@@ -119,3 +83,8 @@ while menu >= 1 and menu <= 6:
       novoUsuario['email'] = input('Insira o email alterado do usuário: ') #add email
       listaUsuarios.append(novoUsuario.copy())
       ordemCad = listaUsuarios.copy()
+      menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
+    elif menu == 7:
+        break
+    while menu <1 or menu >7:
+        menu = int(input('\nMenu:\nDigite 1 para cadastrar um novo usuário.\nDigite 2 para exibir todos os usuários cadastrados em ordem de cadastro.\nDigite 3 para exibir todos os usuários cadastrados em ordem alfabética.\nDigite 4 para buscar um participante pelo nome.\nDigite 5 para remover um participante pelo email.\nDigite 6 para alterar o nome de um usuário cadastrado no sistema, buscando-o por seu e-mail.\nDigite 7 para encerrar.\nDigite o número da sua escolha: '))
